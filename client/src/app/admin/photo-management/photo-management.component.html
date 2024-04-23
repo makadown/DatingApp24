@@ -1,0 +1,20 @@
+<div class="row" *ngIf="photos">
+    <div class="col-2" *ngFor="let photo of photos">
+        <img src="{{photo.url}}" alt="{{photo.url}}" class="img-thumbnail p-1">
+        <div class="text-center">
+            User: {{photo.username}}
+        </div>
+        <div class="text-center">
+            <button class="btn btn-sm btn-success" (click)="approvePhoto(photo.id)">
+                Approve
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="rejectPhoto(photo.id)">
+                Reject
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!photos || photos.length === 0">
+    No photos to manage at this moment.
+</div>
